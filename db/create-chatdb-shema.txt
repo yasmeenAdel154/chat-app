@@ -1,0 +1,31 @@
+-- First, create users table
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Then, create interactions table
+CREATE TABLE interactions (
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL,
+    user_input TEXT NOT NULL,
+    model_response TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE USER chatuser WITH PASSWORD 'strongpassword';
+
+GRANT ALL PRIVILEGES ON DATABASE chatdb TO chatuser;
+
+GRANT ALL PRIVILEGES ON TABLE users TO chatuser;
+GRANT ALL PRIVILEGES ON TABLE interactions TO chatuser;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO chatuser;
+
+
+
+SELECT * FROM users;
+
+

@@ -1,0 +1,18 @@
+SQLAlchemy doesn’t talk to Postgres directly.
+
+It uses a driver (like psycopg2) under the hood to send queries to Postgres.
+
+solution:-
+pip install pg8000
+import pg8000
+
+----------
+email-validator is not installed,
+solution:-
+- pip install pydantic[email]
+
+----
+pip install accelerate
+pip install auto-gptq
+pip install optimum
+

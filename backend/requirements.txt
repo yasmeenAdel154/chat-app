@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+psycopg2-binary
+sqlalchemy
+pydantic
+openai
+python-dotenv
+# LLM + reliability
+openai==1.51.2
+tenacity==8.2.3
